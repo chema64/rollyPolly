@@ -216,8 +216,8 @@ function parseInput(inputString) {
 
 	if (inputMatches) {
 		// parse into array
-		inputArray[0] = inputMatches[1]
-		inputArray[1] = inputMatches[3]
+		inputArray[0] = parseInt(inputMatches[1], 10)
+		inputArray[1] = parseInt(inputMatches[3], 10)
 
 		// return array
 		return inputArray
@@ -397,8 +397,11 @@ function acquireInput() {
 
 // ----------------------------------------------
 
-
-module.exports = graphRoll
-
+module.exports = {
+	graph: graphRoll,
+	possibleRolls: diceRollResultsListSpesh,
+	compactResults: createDiceRollProbability,
+	parseRollString: parseInput
+}
 
 // ===================== js =====================
