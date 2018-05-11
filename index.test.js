@@ -6,9 +6,10 @@ describe('A string is input which provides number of dice and dice sides', () =>
 		expect( rollypolly.parseRollString('3d6')[0] ).toBe(3)
 	})
 
-	test('number value which represents, number of sides', () => {
-		expect( rollypolly.parseRollString('3d6')[1] ).toBe(6)
-	})
+	// test('number value which represents, number of sides', () => {
+	// 	expect( rollypolly.parseRollString('3d6')[1] ).toBe(6)
+		
+	// })
 })
 
 // test.only('Parses single digit roll count', () => {
