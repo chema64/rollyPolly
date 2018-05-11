@@ -4,11 +4,19 @@ var rollypolly = require('./index')
 describe('A string is input which provides number of dice and dice sides', () => {
 	test('number value which represents, number of dice', () => {
 		expect( rollypolly.parseRollString('3d6')[0] ).toBe(3)
+		expect( rollypolly.parseRollString('1d6')[0] ).toBe(1)
 	})
 
-	test('number value which represents, number of sides', () => {
-		expect( rollypolly.parseRollString('3d6')[1] ).toBe(6)
+	test.only('JavaScript number primative, which represents number of dice greater then the current limit of 5', () => {
+		expect( rollypolly.parseRollString('6d6')[0] ).toBe(6)
+		expect( rollypolly.parseRollString('10d6')[0] ).toBe(10)
+		expect( rollypolly.parseRollString('99d6')[0] ).toBe(99)
+
 	})
+
+	// test('number value which represents, number of sides', () => {
+	// 	expect( rollypolly.parseRollString('3d6')[1] ).toBe(6)
+	// })
 })
 
 // test.only('Parses single digit roll count', () => {
