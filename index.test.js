@@ -18,6 +18,7 @@ describe('A string is input which provides number of dice and dice sides', () =>
 
 	// test('number value which represents, number of sides', () => {
 	// 	expect( rollypolly.parseRollString('3d6')[1] ).toBe(6)
+		
 	// })
 })
 
