@@ -196,6 +196,8 @@ function produceOneRow(outcome, count, highestCount, totalCount, maxGraphBarLeng
 
 // ----------------------------------------------
 /*
+	input string now supports 2 primative number values at the start and end of input string.
+	A single case insensitive character still separates these two number values. 
 	returns false if the input string is unrecognisable, otherwise
 	returns a two element array of integers [numRolls, diceSides]
 */
@@ -203,7 +205,7 @@ function parseInput(inputString) {
 
 	// validate inputString
 	let inputArray = []
-	const diceMatcher = RegExp(/^([1-5])(d)([1-9][0-9]?)$/i)
+	const diceMatcher = RegExp(/^([1-9][0-9]?)(d)([1-9][0-9]?)$/i)
 	
 	if(typeof inputString === "string") {
 		inputString = inputString.trim().toLowerCase()

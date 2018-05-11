@@ -7,10 +7,12 @@ describe('A string is input which provides number of dice and dice sides', () =>
 		expect( rollypolly.parseRollString('1d6')[0] ).toBe(1)
 	})
 
-	test.only('JavaScript number primative, which represents number of dice greater then the current limit of 5', () => {
+	test('JavaScript number primative, which represents number of dice greater then the current limit of 5', () => {
 		expect( rollypolly.parseRollString('6d6')[0] ).toBe(6)
 		expect( rollypolly.parseRollString('10d6')[0] ).toBe(10)
 		expect( rollypolly.parseRollString('99d6')[0] ).toBe(99)
+		expect( rollypolly.parseRollString('100d6')[0] ).toBeFalsy()
+		expect( rollypolly.parseRollString('06d6')[0] ).toBeFalsy()
 
 	})
 
