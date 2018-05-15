@@ -1,7 +1,7 @@
 // ===================== js =====================
 
 // ----------------------------------------------
-	/*  diceRollResultsListSpesh:
+	/*  diceRollResultsList:
 
 	Using the inputs of numberOfDice and diceSides, values for each possible roll result or 
 	rollOutcome is populated into an array. 
@@ -11,7 +11,7 @@
 	Returns an array: [oldList[] which contains all possible dice rolls, from the number of 
 	dice and dice sides]
 	*/
-function diceRollResultsListSpesh(numberOfDice, diceSides) {
+function diceRollResultsList(numberOfDice, diceSides) {
 
     //setting oldList to zero allows oldList to be populated during first loop
     let oldList = [0]
@@ -268,7 +268,7 @@ function graphRoll(rollString, destinationElement, graphBarWidth=400) {
 	selectElement.innerHTML = ''
 
 	// create raw results
-	rawData = diceRollResultsListSpesh(inputArray[0], inputArray[1])
+	rawData = diceRollResultsList(inputArray[0], inputArray[1])
 
 	// create probabilty data
 	probabilityData = createDiceRollProbability(rawData)
@@ -302,7 +302,7 @@ function destinationCheck(destinationElement) {
 
 	Validate input from html input element. If input is valid calculate dice roll probability 
 	information, using the following funcitons.
-	diceRollResultsListSpesh and createDiceRollProbability. Lastly present the results in a 
+	diceRollResultsList and createDiceRollProbability. Lastly present the results in a 
 	html table using the printProbabilityTable function.
 
 	Returns false : [False value is returned if
@@ -325,7 +325,7 @@ function diceRollOutput() {
 		diceSides = diceParameters[2]
 
 		//Create an array containing all possible dice roll outcomes
-		rawData = diceRollResultsListSpesh(numberOfDice, diceSides)
+		rawData = diceRollResultsList(numberOfDice, diceSides)
 
 		//Work out the probability of each dice roll from rawData
 		resultData = createDiceRollProbability(rawData)
@@ -401,7 +401,7 @@ function acquireInput() {
 
 module.exports = {
 	graph: graphRoll,
-	possibleRolls: diceRollResultsListSpesh,
+	possibleRolls: diceRollResultsList,
 	compactResults: createDiceRollProbability,
 	parseRollString: parseInput
 }
