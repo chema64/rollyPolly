@@ -36,7 +36,11 @@ function diceRollResultsList(numberOfDice, diceSides) {
         oldList = freshList
     }
 
-    return oldList
+    if (oldList.length === 0) {
+    	return [0]
+    } else {
+	    return oldList
+    }
 
 }
 

@@ -36,3 +36,20 @@ describe('Reads and returns integer number of dice from roll string', () => {
 
 })
 
+
+describe('generates list of all possible results', () => {
+
+	test('sensible rolls', () => {
+		expect( rollypolly.possibleRolls(1,1) ).toEqual([1])
+		expect( rollypolly.possibleRolls(2,1) ).toEqual([2])
+		expect( rollypolly.possibleRolls(1,2) ).toEqual([1,2])
+		expect( rollypolly.possibleRolls(1,3).sort() ).toEqual([1,2,3])
+		expect( rollypolly.possibleRolls(2,3).sort() ).toEqual([2,3,3,4,4,4,5,5,6])
+	})
+
+	test('zero rolls and/or zero sides gives a single result of zero', () => {
+		expect( rollypolly.possibleRolls(0,1) ).toEqual([0])
+		expect( rollypolly.possibleRolls(1,0) ).toEqual([0])
+	})
+
+})
