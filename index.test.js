@@ -39,7 +39,7 @@ describe('Reads and returns integer number of dice from roll string', () => {
 
 describe('generates list of all possible results', () => {
 
-	test('sensible rolls', () => {
+	test('return correct results for sensible rolls', () => {
 		expect( rollypolly.possibleRolls(1,1) ).toEqual([1])
 		expect( rollypolly.possibleRolls(2,1) ).toEqual([2])
 		expect( rollypolly.possibleRolls(1,2) ).toEqual([1,2])
@@ -47,9 +47,29 @@ describe('generates list of all possible results', () => {
 		expect( rollypolly.possibleRolls(2,3).sort() ).toEqual([2,3,3,4,4,4,5,5,6])
 	})
 
-	test('zero rolls and/or zero sides gives a single result of zero', () => {
+	test('return single result of zero for zero rolls and/or zero sides', () => {
+		expect( rollypolly.possibleRolls(0,0) ).toEqual([0])
 		expect( rollypolly.possibleRolls(0,1) ).toEqual([0])
 		expect( rollypolly.possibleRolls(1,0) ).toEqual([0])
+	})
+
+})
+
+
+describe('generates count of results', () => {
+
+	test('return correct count', () => {
+		const testList = [[
+			[1,2,3,4,5], [undefined,1,1,1,1,1]
+		],[
+			[3,4,4,5], [undefined,undefined,undefined,1,2,1]
+		],[
+			[1,3,1,3], [undefined,2,undefined,2]
+		]]
+
+		testList.forEach( (pair)=> {
+			expect( rollypolly.compactResults(pair[0]) ).toEqual(pair[1])
+		})
 	})
 
 })
