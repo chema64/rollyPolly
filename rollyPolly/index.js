@@ -77,18 +77,6 @@ function createDiceRollProbability(rawData) {
 
 }
 
-// ----------------------------------------------
-	/* makeDiv:
-
-	Create a div element of the specified width, and return it
-
-	Returns an object: [div[] which contains DOM div element object]
-	*/
-function makeDiv(divLength) {
-    const div = document.createElement("div")
-    div.style.width = divLength + "em"
-    return div
-}
 
 // ----------------------------------------------
     /* printProbabilityTable:
@@ -189,7 +177,15 @@ function produceOneRow(outcome, count, highestCount, totalCount, maxGraphBarLeng
 	var div = makeDiv(count)
 
 	var divWidth = count / highestCount * maxGraphBarLength
+
 	div.style.width = divWidth + "px"
+	div.style.height = "0.4em"
+	div.style.backgroundColor = "steelblue"
+
+    // height: 0.4em;
+    // background-color: steelblue;
+
+
 
 	//attach div element to table cell 
 	divCell.appendChild(div)
