@@ -174,7 +174,7 @@ function produceOneRow(outcome, count, highestCount, totalCount, maxGraphBarLeng
 
 	// do the graph bar cell
 	var divCell = document.createElement("td")
-	var div = makeDiv(count)
+	var div = document.createElement("div")
 
 	var divWidth = count / highestCount * maxGraphBarLength
 
