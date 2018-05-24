@@ -1,0 +1,27 @@
+{
+  "name": "rollypolly_simple_example",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "build-dev": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chema64/rollyPolly.git"
+  },
+  "keywords": [],
+  "author": "Jeremy Wiseman <chema64@gmail.com>",
+  "license": "Apache-2.0",
+  "dependencies": {},
+  "devDependencies": {
+    "rollypolly": "^0.1.2",
+    "webpack": "^4.8.3",
+    "webpack-cli": "^2.1.3",
+    "webpack-dev-server": "^3.1.4"
+  },
+  "bugs": {
+    "url": "https://github.com/chema64/rollyPolly/issues"
+  },
+  "homepage": "https://github.com/chema64/rollyPolly#readme",
+  "description": ""
+}
