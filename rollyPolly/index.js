@@ -199,13 +199,16 @@ function produceOneRow(outcome, count, highestCount, totalCount, maxGraphBarLeng
 	input string now supports 2 primative number values at the start and end of input string.
 	A single case insensitive character still separates these two number values. 
 	returns false if the input string is unrecognisable, otherwise
-	returns a two element array of integers [numRolls, diceSides]
+	returns a two element array of integers [numRolls, diceSides] .
+	Added support for three digit diceside value 100. 
+	Added support for diceside special character '%' which is converted to 100.
+
 */
 function parseInput(inputString) {
 
 	// validate inputString
 	let inputArray = []
-	const diceMatcher = RegExp(/^([1-9][0-9]?)(d)([1-9][0-9]?)$/i)
+	const diceMatcher = RegExp(/^([1-9][0-9]?)(d)([1-9][0-9]?|100|%)$/i)
 	
 	if(typeof inputString === "string") {
 		inputString = inputString.trim().toLowerCase()
@@ -217,6 +220,13 @@ function parseInput(inputString) {
 	let inputMatches = diceMatcher.exec(inputString)
 
 	if (inputMatches) {
+
+		//convert special character '%' to 100 
+		if(inputMatches[3] === '%')
+		{
+			inputMatches[3] = 100
+		}
+
 		// parse into array
 		inputArray[0] = parseInt(inputMatches[1], 10)
 		inputArray[1] = parseInt(inputMatches[3], 10)

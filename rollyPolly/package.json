@@ -1,6 +1,6 @@
 {
   "name": "rollypolly",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Probability graph for dice rolls.",
   "main": "index.js",
   "scripts": {

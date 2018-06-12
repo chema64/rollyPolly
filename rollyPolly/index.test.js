@@ -27,11 +27,34 @@ describe('Reads and returns integer number of dice from roll string', () => {
 	})
 
 	test('invalid dice sides returns false-ish result', () => {
-		expect( rollypolly.parseRollString('6d100')[1] ).toBeFalsy()
 		expect( rollypolly.parseRollString('6d06')[1] ).toBeFalsy()
 		expect( rollypolly.parseRollString('6d-1')[1] ).toBeFalsy()
 		expect( rollypolly.parseRollString('6d1.3')[1] ).toBeFalsy()
 		expect( rollypolly.parseRollString('6d')[1] ).toBeFalsy()
+	})
+
+	test('single digit and dice sides value of 100', ()=> {
+		
+		expect( rollypolly.parseRollString('1d100')[1] ).toBe(100)
+
+	})
+
+	test('invalid triple digit dice sides returns false-ish result', ()=> {
+		
+		expect( rollypolly.parseRollString('1d101')[1] ).toBeFalsy()
+
+	})
+
+	test('single digit and special character "%" should by truthy', ()=> {
+		
+		expect( rollypolly.parseRollString('1d%')[1] ).toBeTruthy()
+
+	})
+
+	test('single digit and special character "%" should equal number value 100', ()=> {
+		
+		expect( rollypolly.parseRollString('1d%')[1] ).toBe(100)
+
 	})
 
 })
